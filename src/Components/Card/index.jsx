@@ -3,12 +3,17 @@ import { useContext } from "react";
 import { shoppingCartContext } from "../Context";
 
 function Card({data}) {
-  const context = useContext(shoppingCartContext);
+  const {count, setCount, openProductDetail, setShowProduct} = useContext(shoppingCartContext);
   
+  const productDescription = (productDetail) => {
+    openProductDetail();
+    setShowProduct(productDetail);
+  };
+
   return(
     <div 
       className="bg-white cursor-pointer w-56 h-60 rounded-lg"
-      onClick={ () => context.openProductDetail()}
+      onClick={ () => productDescription(data)}
     >
       <figure className="relative mb-5 w-full h-4/5">
         <span 
@@ -22,7 +27,7 @@ function Card({data}) {
           alt={data.title} />
         <div 
           className="absolute top-0 right-0 flex justify-center items-center bg-black/10 w-6 h-6 rounded-full text-black m-2 p-1"
-          onClick={() => context.setCount(context.count + 1)}
+          onClick={() => setCount(count + 1)}
         >
           <PlusCircleIcon className="text-white h-6 w-6" />
         </div>
