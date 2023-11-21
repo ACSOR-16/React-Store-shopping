@@ -25,7 +25,6 @@ function Card({data}) {
     setCartProducts([...cartProducts, productData]);
     openCheckoutSideMenu();
     closeProductDetail();
-    console.log("cart", cartProducts);
   };
   return(
     <div 
