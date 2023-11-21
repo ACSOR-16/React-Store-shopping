@@ -9,7 +9,9 @@ function Card({data}) {
     openProductDetail, 
     setShowProduct, 
     setCartProducts,
-    cartProducts
+    cartProducts,
+    openCheckoutSideMenu,
+    closeProductDetail
   } = useContext(shoppingCartContext);
   
   const productDescription = (productDetail) => {
@@ -17,9 +19,12 @@ function Card({data}) {
     setShowProduct(productDetail);
   };
 
-  const addProductToCart = (productData) => {
+  const addProductToCart = (event, productData) => {
+    event.stopPropagation()
     setCount(count +1);
     setCartProducts([...cartProducts, productData]);
+    openCheckoutSideMenu();
+    closeProductDetail();
     console.log("cart", cartProducts);
   };
   return(
@@ -39,7 +44,7 @@ function Card({data}) {
           alt={data.title} />
         <div 
           className="absolute top-0 right-0 flex justify-center items-center bg-black/10 w-6 h-6 rounded-full text-black m-2 p-1"
-          onClick={() => addProductToCart(data)}
+          onClick={(event) => addProductToCart(event, data)}
         >
           <PlusCircleIcon className="text-white h-6 w-6" />
         </div>

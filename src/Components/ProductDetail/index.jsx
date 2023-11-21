@@ -22,8 +22,8 @@ function ProductDetail() {
       <figure className="px-6">
         <img 
           className="w-full h-full rounded-lg" 
-          src={showProduct.images}
-          alt={showProduct.title} 
+          src={showProduct.images?.[0]}
+          alt={showProduct.title}
         />
       </figure>
       <p className="flex flex-col p-6">
