@@ -6,14 +6,12 @@ function ShoppingCartProvider({children}) {
   const [count, setCount] = useState(0);
 
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
-  function openProductDetail() {
-    return setIsProductDetailOpen(true);
-  }
-  function closeProductDetail() {
-    return setIsProductDetailOpen(false);
-  }
+  const openProductDetail = () => setIsProductDetailOpen(true);
+  const closeProductDetail = () => setIsProductDetailOpen(false);
 
   const [showProduct, setShowProduct] = useState({});
+
+  const [cartProducts, setCartProducts] = useState([]);
 
   return (
     <shoppingCartContext.Provider value={{
@@ -24,6 +22,8 @@ function ShoppingCartProvider({children}) {
       isProductDetailOpen,
       showProduct,
       setShowProduct,
+      cartProducts,
+      setCartProducts
     }}>
       {children}
     </shoppingCartContext.Provider>

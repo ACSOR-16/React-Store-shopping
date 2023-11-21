@@ -22,7 +22,7 @@ function ProductDetail() {
       <figure className="px-6">
         <img 
           className="w-full h-full rounded-lg" 
-          src={showProduct.images[0]} 
+          src={showProduct.images}
           alt={showProduct.title} 
         />
       </figure>
