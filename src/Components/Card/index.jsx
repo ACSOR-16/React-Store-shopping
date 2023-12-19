@@ -26,10 +26,11 @@ function Card({data}) {
     openCheckoutSideMenu();
     closeProductDetail();
   };
+
   return(
     <div 
       className="bg-white cursor-pointer w-56 h-60 rounded-lg"
-      onClick={ () => productDescription(data)}
+      onClick={() => productDescription(data)}
     >
       <figure className="relative mb-5 w-full h-4/5">
         <span 
@@ -45,14 +46,13 @@ function Card({data}) {
           className="absolute top-0 right-0 flex justify-center items-center bg-black/10 w-6 h-6 rounded-full text-black m-2 p-1"
           onClick={(event) => addProductToCart(event, data)}
         >
-          <PlusCircleIcon className="text-white h-6 w-6" />
+          <PlusCircleIcon className="text-white h-6 w-6"/>
         </div>
       </figure>
       <p className="flex justify-between">
         <span className="text-black text-sm font-light">{data.title}</span>
         <span className="text-black text-lg font-medium">${data.price}.00</span>
       </p>
-
     </div>   
   );
 }

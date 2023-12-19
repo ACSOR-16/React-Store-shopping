@@ -14,7 +14,7 @@ function ProductDetail() {
         <h2 className="font-medium text-xl">Detail</h2>
         <div 
           className="cursor-pointer"
-          onClick={ () => closeProductDetail()}
+          onClick={() => closeProductDetail()}
         >
           <XMarkIcon className="h-6 w-6 text-white-950"/>
         </div>
@@ -22,7 +22,7 @@ function ProductDetail() {
       <figure className="px-6">
         <img 
           className="w-full h-full rounded-lg" 
-          src={showProduct.images?.[0]}
+          src={showProduct.images}
           alt={showProduct.title}
         />
       </figure>

@@ -9,7 +9,7 @@ const CheckoutSideMenu = () => {
 
   return (
     <aside
-      className={`${isCheckoutSideMenuOpen ? "flex" : "hidden"} checkout-side-menu flex-col fixed right-0 border border-white rounded-e-lg bg-gray-300`}
+      className={`${isCheckoutSideMenuOpen ? "flex" : "hidden"} checkout-side-menu flex-col fixed right-0 border border-white rounded-e-lg bg-black-300`}
     >
       <div className="flex justify-between items-center p-6">
         <h2 className="font-medium text-xl">My Order</h2>
@@ -22,14 +22,14 @@ const CheckoutSideMenu = () => {
       </div>
       <div className="px-6">
         {
-          cartProducts.map(product => {
+          cartProducts.map(product => (
             <OrderCard
               key={product.id}
-              title={product.id}
+              title={product.title}
               imageUrl={product.images}
               price={product.price}
             />
-          })
+          ))
         }
       </div>
     </aside>

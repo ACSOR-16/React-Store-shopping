@@ -1,4 +1,3 @@
-import { FlagIcon } from "@heroicons/react/24/solid";
 import { createContext, useState } from "react";
 
 const shoppingCartContext = createContext();
@@ -28,6 +27,7 @@ function ShoppingCartProvider({children}) {
       setShowProduct,
       cartProducts,
       setCartProducts,
+      isCheckoutSideMenuOpen,
       openCheckoutSideMenu,
       closeCheckoutSideMenu
     }}>
