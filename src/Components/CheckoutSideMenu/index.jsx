@@ -5,8 +5,17 @@ import { OrderCard } from "../OrderCard";
 import "./styles.css";
 
 const CheckoutSideMenu = () => {
-  const {isCheckoutSideMenuOpen, closeCheckoutSideMenu, cartProducts} = useContext(shoppingCartContext);
-
+  const {
+    isCheckoutSideMenuOpen, 
+    closeCheckoutSideMenu, 
+    cartProducts, 
+    setCartProducts
+  } = useContext(shoppingCartContext);
+  
+  const handleDelete = (id) => {
+    const filteredProducts = cartProducts.filter(product => product.id != id);
+    setCartProducts(filteredProducts);
+  };
   return (
     <aside
       className={`${isCheckoutSideMenuOpen ? "flex" : "hidden"} checkout-side-menu scrollable-cards flex-col fixed right-0 border border-white rounded-e-lg bg-black-300`}
@@ -25,9 +34,11 @@ const CheckoutSideMenu = () => {
           cartProducts.map(product => (
             <OrderCard
               key={product.id}
+              id={product.id}
               title={product.title}
               imageUrl={product.images}
               price={product.price}
+              handleDelete={handleDelete}
             />
           ))
         }
