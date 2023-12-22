@@ -8,8 +8,8 @@ function MyOrders() {
   const {order} = useContext(shoppingCartContext);
   return(
     <Layout>
-      <div className="flex items-center justify-center relative w-80">
-        <h1>My Order</h1>
+      <div className="flex items-center justify-center relative w-80 mb-5">
+        <h1 className="font-medium text-xl">My Order</h1>
       </div>
       {
         order.map((order, index) => (

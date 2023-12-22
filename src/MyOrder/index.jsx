@@ -8,7 +8,8 @@ import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 function MyOrder() {
   const {order} = useContext(shoppingCartContext);
   const currentPath = window.location.pathname;
-  let index = currentPath.substring(currentPath.lastIndexOf("/") + 1);
+  console.log(currentPath);let index = currentPath.substring(currentPath.lastIndexOf("/") + 1);
+  console.log(index);
   if (index === "last") index = order?.length - 1;
   return(
     <Layout>
