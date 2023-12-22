@@ -1,6 +1,6 @@
 import { PlusCircleIcon, CheckIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";
-import { shoppingCartContext } from "../Context";
+import { shoppingCartContext } from "../../Context";
 
 function Card({data}) {
   const {
