@@ -4,7 +4,29 @@ import { useContext } from "react";
 import { shoppingCartContext } from "../Context";
 
 function Home() {
-  const {items, setSearchByTitle} = useContext(shoppingCartContext);  
+  const {items, searchByTitle, setSearchByTitle, filteredItems} = useContext(shoppingCartContext);  
+
+  const renderView = () => {
+    if (searchByTitle?.length > 0) {
+      if(filteredItems?.length > 0) {
+        return(
+          filteredItems?.map(item => (
+            <Card key={item.id} data={item}/>
+          ))
+        );
+      } else {
+        return(
+          <div>We don't have anything</div>
+        );
+      }
+    } else {
+      return (
+        items?.map(item => (
+          <Card key={item.id} data={item}/>
+        ))
+      )
+    }
+  };
   return(
     <Layout>
       <div className="flex items-center justify-center relative w-80 mb-4">
@@ -18,9 +40,7 @@ function Home() {
       />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
         {
-          items?.map(item => (
-            <Card key={item.id} data={item}/>
-          ))
+          renderView()
         }
       </div>
     </Layout>
