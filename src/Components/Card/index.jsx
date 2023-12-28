@@ -56,7 +56,7 @@ function Card({data}) {
     >
       <figure className="relative mb-5 w-full h-4/5">
         <span 
-          className="absolute text-black text-sm bottom-0 left-0 bg-black/20 rounded-lg m-2 px-3 py-0.5"
+          className="absolute text-white text-sm bottom-0 left-0 bg-black/20 rounded-lg m-2 px-3 py-0.5"
         >
           {data.category.name}
         </span>

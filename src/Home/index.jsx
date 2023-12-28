@@ -7,26 +7,19 @@ function Home() {
   const {items, searchedItem, setSearchedItem, filteredItems} = useContext(shoppingCartContext);  
 
   const renderView = () => {
-    if (searchedItem?.length > 0) {
-      if(filteredItems?.length > 0) {
-        return(
-          filteredItems?.map(item => (
-            <Card key={item.id} data={item}/>
-          ))
-        );
-      } else {
-        return(
-          <div>We don't have anything</div>
-        );
-      }
-    } else {
-      return (
-        items?.map(item => (
+    if(filteredItems?.length > 0) {
+      return(
+        filteredItems?.map(item => (
           <Card key={item.id} data={item}/>
         ))
-      )
+      );
+    } else {
+      return(
+        <div>We don't have anything</div>
+      );
     }
   };
+
   return(
     <Layout>
       <div className="flex items-center justify-center relative w-80 mb-4">
