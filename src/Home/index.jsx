@@ -4,10 +4,10 @@ import { useContext } from "react";
 import { shoppingCartContext } from "../Context";
 
 function Home() {
-  const {items, searchByTitle, setSearchByTitle, filteredItems} = useContext(shoppingCartContext);  
+  const {items, searchedItem, setSearchedItem, filteredItems} = useContext(shoppingCartContext);  
 
   const renderView = () => {
-    if (searchByTitle?.length > 0) {
+    if (searchedItem?.length > 0) {
       if(filteredItems?.length > 0) {
         return(
           filteredItems?.map(item => (
@@ -36,7 +36,7 @@ function Home() {
         type="text" 
         placeholder="Search a Product"
         className="rounded-lg border border-gray-100 w-80 mb-6 p-3 focus:outline-none"  
-        onChange={(event) => setSearchByTitle(event.target.value)}
+        onChange={(event) => setSearchedItem(event.target.value)}
       />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
         {
